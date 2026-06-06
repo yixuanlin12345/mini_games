@@ -1,68 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>矩陣挑戰</title>
+const problems=[
 
-<style>
+{
+question:"det[[1,2],[3,4]]=？",
+correct:"-2",
+choices:["-2","2","10"]
+},
 
-body{
-background:black;
-color:white;
-text-align:center;
-font-family:Arial;
+{
+question:"[[1,2],[3,4]]+[[-1,0],[1,2]] 的 (1,1)=？",
+correct:"0",
+choices:["0","1","2"]
+},
+
+{
+question:"I₂ 的行列式=？",
+correct:"1",
+choices:["0","1","2"]
 }
 
-button{
-
-width:300px;
-padding:20px;
-margin:15px;
-font-size:25px;
-
-background:#111;
-color:white;
-border:2px solid #7c3aed;
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<h1>🔲 矩陣挑戰</h1>
-
-<h2>
-
-det
-
-|1 2|
-
-|3 4|
-
-= ?
-
-</h2>
-
-<button>-2</button>
-
-<button onclick="alert('答對！')">
-
--2
-
-</button>
-
-<button>10</button>
-
-<a href="../../index.html">
-
-<br><br>
-
-← 回首頁
-
-</a>
-
-</body>
-</html>
+];
