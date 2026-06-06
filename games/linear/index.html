@@ -1,32 +1,155 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>線代挑戰</title>
+
 <style>
+
 body{
 background:black;
 color:white;
 text-align:center;
 font-family:Arial;
 }
+
+h1{
+font-size:60px;
+}
+
+.question{
+margin-top:60px;
+font-size:40px;
+}
+
+button{
+width:300px;
+padding:20px;
+margin:15px;
+font-size:25px;
+background:#111;
+color:white;
+border:2px solid #7c3aed;
+cursor:pointer;
+}
+
+.score{
+font-size:30px;
+margin-top:40px;
+}
+
 a{
+display:block;
+margin-top:50px;
 color:white;
 }
+
 </style>
 </head>
+
 <body>
 
 <h1>📐 線代挑戰</h1>
 
-<h2>
-Coming Soon
-</h2>
+<div class="question" id="question"></div>
+
+<div id="choices"></div>
+
+<div class="score">
+
+分數：
+
+<span id="score">0</span>
+
+</div>
 
 <a href="../../index.html">
 
 ← 回首頁
 
 </a>
+
+<script>
+
+let score=0;
+
+const problems=[
+
+{
+question:"v₁=(1,2), v₂=(2,4) 是否線性獨立？",
+correct:"否",
+choices:["是","否"]
+},
+
+{
+question:"dim(R²)=？",
+correct:"2",
+choices:["1","2","3"]
+},
+
+{
+question:"det[[1,2],[3,4]]=？",
+correct:"-2",
+choices:["-2","2","10"]
+},
+
+{
+question:"{(1,0),(0,1)} 是否為 R² 的基底？",
+correct:"是",
+choices:["是","否"]
+},
+
+{
+question:"A=[[2,0],[0,3]] 的特徵值？",
+correct:"2,3",
+choices:["2,3","1,2","0,3"]
+}
+
+];
+
+function newQuestion(){
+
+let p=
+problems[Math.floor(Math.random()*problems.length)];
+
+document.getElementById("question").innerText=
+p.question;
+
+let html="";
+
+p.choices.forEach(choice=>{
+
+html+=`
+<button onclick="check('${choice}','${p.correct}')">
+${choice}
+</button>
+`;
+
+});
+
+document.getElementById("choices").innerHTML=
+html;
+
+}
+
+function check(answer,correct){
+
+if(answer===correct){
+
+score++;
+
+document.getElementById("score").innerText=
+score;
+
+}
+
+newQuestion();
+
+}
+
+newQuestion();
+
+</script>
 
 </body>
 </html>
