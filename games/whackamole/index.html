@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>打地鼠</title>
+
+<style>
+
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+h1{
+    margin-top:40px;
+    font-size:60px;
+}
+
+.grid{
+
+    width:450px;
+
+    margin:50px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,150px);
+
+}
+
+.cell{
+
+    width:150px;
+
+    height:150px;
+
+    border:2px solid #7c3aed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:70px;
+
+    cursor:pointer;
+
+}
+
+.cell:hover{
+
+    background:#111;
+
+}
+
+.info{
+
+    font-size:30px;
+
+}
+
+a{
+
+    display:block;
+
+    margin-top:30px;
+
+    color:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🎯 打地鼠</h1>
+
+<div class="info">
+
+分數：
+
+<span id="score">
+
+0
+
+</span>
+
+</div>
+
+<div class="grid" id="grid">
+
+</div>
+
+<a href="../../index.html">
+
+← 回首頁
+
+</a>
+
+<script>
+
+const grid=
+document.getElementById(
+"grid"
+);
+
+let score=0;
+
+let mole=0;
+
+function createBoard(){
+
+grid.innerHTML="";
+
+for(let i=0;i<9;i++){
+
+let div=
+document.createElement(
+"div"
+);
+
+div.className="cell";
+
+if(i===mole){
+
+div.innerText="🐹";
+
+}
+
+div.onclick=
+()=>hit(i);
+
+grid.appendChild(div);
+
+}
+
+}
+
+function hit(index){
+
+if(index===mole){
+
+score++;
+
+document.getElementById(
+"score"
+).innerText=
+score;
+
+newMole();
+
+}
+
+}
+
+function newMole(){
+
+mole=
+Math.floor(
+Math.random()*9
+);
+
+createBoard();
+
+}
+
+setInterval(
+
+newMole,
+
+800
+
+);
+
+createBoard();
+
+</script>
+
+</body>
+</html>
