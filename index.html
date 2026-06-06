@@ -36,16 +36,17 @@ h1{
 
 .container{
     width:90%;
+    max-width:1400px;
     margin:auto;
 }
 
 .section{
-    margin-bottom:70px;
+    margin-bottom:80px;
 }
 
 .section h2{
-    margin-bottom:30px;
     font-size:40px;
+    margin-bottom:30px;
 }
 
 .grid{
@@ -62,11 +63,13 @@ h1{
     text-decoration:none;
     color:white;
     transition:.3s;
+    border:2px solid #222;
 }
 
 .card:hover{
     transform:translateY(-10px);
     background:#1d1d1d;
+    border-color:#7c3aed;
 }
 
 .icon{
@@ -74,18 +77,17 @@ h1{
 }
 
 .name{
-    font-size:40px;
+    font-size:36px;
     margin-top:20px;
 }
 
 .desc{
     color:#888;
     margin-top:15px;
-    font-size:28px;
+    font-size:24px;
 }
 
 </style>
-
 </head>
 
 <body>
@@ -98,123 +100,67 @@ Play Games • Train Brain
 
 <div class="container">
 
+<!-- 經典遊戲 -->
+
 <div class="section">
 
 <h2>🎲 經典遊戲</h2>
 
 <div class="grid">
 
-<div class="card">
-
+<a class="card" href="games/snake/index.html">
 <div class="icon">🐍</div>
-
-<a class="card"
-href="games/snake/index.html">
-
-<div class="icon">
-🐍
-</div>
-
-<div class="name">
-貪吃蛇
-</div>
-
-<div class="desc">
-開始遊玩
-</div>
-
+<div class="name">貪吃蛇</div>
+<div class="desc">開始遊玩</div>
 </a>
 
-<div class="desc">
-Coming Soon
-</div>
-
-</div>
-
-<div class="card">
-
+<a class="card" href="games/tictactoe/index.html">
 <div class="icon">❌⭕</div>
-
-<a class="card"
-href="games/tictactoe/index.html">
-
-<div class="icon">
-❌⭕
-</div>
-
-<div class="name">
-井字棋
-</div>
-
-<div class="desc">
-開始遊玩
-</div>
-
+<div class="name">井字棋</div>
+<div class="desc">開始遊玩</div>
 </a>
 
-<div class="desc">
-Coming Soon
-</div>
-
-</div>
-
-<div class="card">
-
+<a class="card" href="games/2048/index.html">
 <div class="icon">🔢</div>
-
-<a class="card"
-href="games/2048/index.html">
-
-<div class="icon">
-🔢
-</div>
-
-<div class="name">
-2048
-</div>
-
-<div class="desc">
-開始遊玩
-</div>
-
+<div class="name">2048</div>
+<div class="desc">開始遊玩</div>
 </a>
 
-<div class="desc">
-Coming Soon
-</div>
+<a class="card" href="games/reaction/index.html">
+<div class="icon">⚡</div>
+<div class="name">反應測試</div>
+<div class="desc">開始遊玩</div>
+</a>
 
+<a class="card" href="games/whackamole/index.html">
+<div class="icon">🎯</div>
+<div class="name">打地鼠</div>
+<div class="desc">開始遊玩</div>
+</a>
+
+<div class="card">
+<div class="icon">💣</div>
+<div class="name">踩地雷</div>
+<div class="desc">Coming Soon</div>
 </div>
 
 <div class="card">
-
-<div class="icon">⚡</div>
-
-<a class="card"
-href="games/reaction/index.html">
-
-<div class="icon">
-⚡
+<div class="icon">🐦</div>
+<div class="name">Flappy Bird</div>
+<div class="desc">Coming Soon</div>
 </div>
 
-<div class="name">
-反應測試
-</div>
-
-<div class="desc">
-開始遊玩
-</div>
-
-</a>
-
-<div class="desc">
-Coming Soon
+<div class="card">
+<div class="icon">🧱</div>
+<div class="name">打磚塊</div>
+<div class="desc">Coming Soon</div>
 </div>
 
 </div>
 
 </div>
 
-</div>
+<!-- 數學遊戲 -->
 
 <div class="section">
 
@@ -223,59 +169,27 @@ Coming Soon
 <div class="grid">
 
 <a class="card" href="games/math/index.html">
-
 <div class="icon">➕</div>
-
-<div class="name">
-心算王
-</div>
-
-<div class="desc">
-開始遊玩
-</div>
-
+<div class="name">心算王</div>
+<div class="desc">開始遊玩</div>
 </a>
 
 <div class="card">
-
 <div class="icon">📐</div>
-
-<div class="name">
-線代挑戰
-</div>
-
-<div class="desc">
-Coming Soon
-</div>
-
+<div class="name">線代挑戰</div>
+<div class="desc">Coming Soon</div>
 </div>
 
 <div class="card">
-
 <div class="icon">∫</div>
-
-<div class="name">
-微分挑戰
-</div>
-
-<div class="desc">
-Coming Soon
-</div>
-
+<div class="name">微分挑戰</div>
+<div class="desc">Coming Soon</div>
 </div>
 
 <div class="card">
-
 <div class="icon">🎲</div>
-
-<div class="name">
-機率挑戰
-</div>
-
-<div class="desc">
-Coming Soon
-</div>
-
+<div class="name">機率挑戰</div>
+<div class="desc">Coming Soon</div>
 </div>
 
 </div>
