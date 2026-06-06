@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>2048</title>
+
+<style>
+
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+h1{
+    font-size:60px;
+}
+
+.grid{
+
+    width:420px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,100px);
+
+    gap:5px;
+
+}
+
+.cell{
+
+    width:100px;
+
+    height:100px;
+
+    background:#111;
+
+    border:2px solid #7c3aed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+}
+
+a{
+
+    display:block;
+
+    margin-top:30px;
+
+    color:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🔢2048</h1>
+
+<div class="grid" id="grid">
+</div>
+
+<a href="../../index.html">
+← 回首頁
+</a>
+
+<script>
+
+let board=[
+
+[0,0,0,0],
+[0,0,0,0],
+[0,0,0,0],
+[0,0,0,0]
+
+];
+
+function addNumber(){
+
+let empty=[];
+
+for(let i=0;i<4;i++){
+
+for(let j=0;j<4;j++){
+
+if(board[i][j]==0){
+
+empty.push([i,j]);
+
+}
+
+}
+
+}
+
+if(empty.length==0)return;
+
+let random=
+
+empty[
+Math.floor(
+Math.random()*empty.length
+)
+];
+
+board[random[0]][random[1]]=2;
+
+}
+
+function draw(){
+
+const grid=
+
+document.getElementById(
+"grid"
+);
+
+grid.innerHTML="";
+
+for(let i=0;i<4;i++){
+
+for(let j=0;j<4;j++){
+
+let div=
+
+document.createElement(
+"div"
+);
+
+div.className="cell";
+
+if(board[i][j]!=0){
+
+div.innerText=
+board[i][j];
+
+}
+
+grid.appendChild(div);
+
+}
+
+}
+
+}
+
+function slideLeft(){
+
+for(let i=0;i<4;i++){
+
+let row=
+
+board[i].filter(
+x=>x
+);
+
+for(let j=0;j<row.length-1;j++){
+
+if(row[j]==row[j+1]){
+
+row[j]*=2;
+
+row[j+1]=0;
+
+}
+
+}
+
+row=row.filter(
+x=>x
+);
+
+while(row.length<4){
+
+row.push(0);
+
+}
+
+board[i]=row;
+
+}
+
+}
+
+document.addEventListener(
+"keydown",
+e=>{
+
+if(e.key==="ArrowLeft"){
+
+slideLeft();
+
+addNumber();
+
+draw();
+
+}
+
+}
+
+);
+
+addNumber();
+
+addNumber();
+
+draw();
+
+</script>
+
+</body>
+</html>
