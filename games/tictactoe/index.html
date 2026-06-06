@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>井字棋</title>
+
+<style>
+
+body{
+    background:black;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+}
+
+h1{
+    margin-top:40px;
+    font-size:60px;
+}
+
+#status{
+    margin-top:30px;
+    font-size:35px;
+}
+
+.board{
+    width:450px;
+    margin:40px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,150px);
+}
+
+.cell{
+
+    width:150px;
+    height:150px;
+
+    border:2px solid #7c3aed;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:80px;
+
+    cursor:pointer;
+
+}
+
+.cell:hover{
+
+    background:#111;
+
+}
+
+button{
+
+    margin-top:30px;
+
+    padding:20px 30px;
+
+    font-size:25px;
+
+    background:#7c3aed;
+
+    color:white;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+}
+
+button:hover{
+
+    background:#9333ea;
+
+}
+
+a{
+
+    display:block;
+
+    margin-top:40px;
+
+    color:white;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>❌⭕井字棋</h1>
+
+<div id="status">
+X 回合
+</div>
+
+<div class="board" id="board">
+</div>
+
+<button onclick="resetGame()">
+重新開始
+</button>
+
+<a href="../../index.html">
+← 回首頁
+</a>
+
+<script>
+
+const board=
+document.getElementById("board");
+
+const statusText=
+document.getElementById("status");
+
+let currentPlayer="X";
+
+let cells=
+Array(9).fill("");
+
+function createBoard(){
+
+    board.innerHTML="";
+
+    cells.forEach((cell,index)=>{
+
+        let div=
+        document.createElement("div");
+
+        div.classList.add("cell");
+
+        div.innerText=cell;
+
+        div.onclick=
+        ()=>move(index);
+
+        board.appendChild(div);
+
+    });
+
+}
+
+function move(index){
+
+    if(cells[index]!="") return;
+
+    cells[index]=currentPlayer;
+
+    createBoard();
+
+    if(checkWinner()){
+
+        statusText.innerText=
+        currentPlayer+" 獲勝！";
+
+        return;
+    }
+
+    currentPlayer=
+    currentPlayer==="X"
+    ? "O"
+    : "X";
+
+    statusText.innerText=
+    currentPlayer+" 回合";
+
+}
+
+function checkWinner(){
+
+    let wins=[
+
+        [0,1,2],
+
+        [3,4,5],
+
+        [6,7,8],
+
+        [0,3,6],
+
+        [1,4,7],
+
+        [2,5,8],
+
+        [0,4,8],
+
+        [2,4,6]
+
+    ];
+
+    return wins.some(
+
+        ([a,b,c])=>
+
+        cells[a] &&
+
+        cells[a]===cells[b]
+
+        &&
+
+        cells[b]===cells[c]
+
+    );
+
+}
+
+function resetGame(){
+
+    cells=
+    Array(9).fill("");
+
+    currentPlayer="X";
+
+    statusText.innerText=
+    "X 回合";
+
+    createBoard();
+
+}
+
+createBoard();
+
+</script>
+
+</body>
+</html>
