@@ -1,32 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Flappy Bird</title>
+
 <style>
+
 body{
 background:black;
-color:white;
 text-align:center;
+color:white;
 font-family:Arial;
 }
+
+canvas{
+background:#111;
+border:3px solid #7c3aed;
+}
+
 a{
+display:block;
+margin-top:20px;
 color:white;
 }
+
 </style>
+
 </head>
+
 <body>
 
 <h1>🐦 Flappy Bird</h1>
 
 <h2>
-Coming Soon
+分數：
+<span id="score">0</span>
 </h2>
 
+<canvas
+id="game"
+width="400"
+height="600">
+</canvas>
+
 <a href="../../index.html">
-
 ← 回首頁
-
 </a>
+
+<script>
+
+const canvas=
+document.getElementById("game");
+
+const ctx=
+canvas.getContext("2d");
+
+let birdY=300;
+
+let velocity=0;
+
+let gravity=0.5;
+
+let score=0;
+
+let pipeX=400;
+
+let gapY=
+Math.random()*300+100;
+
+document.addEventListener(
+"keydown",
+e=>{
+
+if(e.code==="Space"){
+
+velocity=-8;
+
+}
+
+}
+);
+
+function draw(){
+
+ctx.fillStyle="black";
+
+ctx.fillRect(
+0,
+0,
+400,
+600
+);
+
+velocity+=gravity;
+
+birdY+=velocity;
+
+ctx.fillStyle="yellow";
+
+ctx.beginPath();
+
+ctx.arc(
+100,
+birdY,
+15,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+pipeX-=3;
+
+if(pipeX<-60){
+
+pipeX=400;
+
+gapY=
+Math.random()*300+100;
+
+score++;
+
+document.getElementById(
+"score"
+).innerText=score;
+
+}
+
+ctx.fillStyle="green";
+
+ctx.fillRect(
+pipeX,
+0,
+60,
+gapY
+);
+
+ctx.fillRect(
+pipeX,
+gapY+150,
+60,
+600
+);
+
+if(
+
+100+15>pipeX &&
+
+100-15<pipeX+60 &&
+
+(
+
+birdY-15<gapY ||
+
+birdY+15>gapY+150
+
+)
+
+){
+
+alert(
+"Game Over\n分數："+score
+);
+
+location.reload();
+
+}
+
+if(
+
+birdY<0 ||
+
+birdY>600
+
+){
+
+alert(
+"Game Over\n分數："+score
+);
+
+location.reload();
+
+}
+
+}
+
+setInterval(
+draw,
+20
+);
+
+</script>
 
 </body>
 </html>
