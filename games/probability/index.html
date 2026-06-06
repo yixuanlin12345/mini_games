@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>機率挑戰</title>
+
+<style>
+body{
+background:black;
+color:white;
+text-align:center;
+font-family:Arial;
+}
+
+h1{
+font-size:60px;
+}
+
+.question{
+margin-top:60px;
+font-size:40px;
+}
+
+button{
+width:300px;
+padding:20px;
+margin:15px;
+font-size:25px;
+background:#111;
+color:white;
+border:2px solid #7c3aed;
+cursor:pointer;
+}
+
+.score{
+margin-top:30px;
+font-size:30px;
+}
+
+a{
+display:block;
+margin-top:50px;
+color:white;
+}
+</style>
+</head>
+<body>
+
+<h1>🎲 機率挑戰</h1>
+
+<div class="question" id="question"></div>
+
+<div id="choices"></div>
+
+<div class="score">
+分數：
+<span id="score">0</span>
+</div>
+
+<a href="../../index.html">
+← 回首頁
+</a>
+
+<script>
+
+let score=0;
+
+const problems=[
+
+{
+question:"擲兩顆骰子，點數和=7的機率？",
+correct:"1/6",
+choices:["1/6","1/12","1/36"]
+},
+
+{
+question:"擲一顆骰子，出現偶數機率？",
+correct:"1/2",
+choices:["1/2","1/3","1/6"]
+},
+
+{
+question:"擲一枚硬幣，正面機率？",
+correct:"1/2",
+choices:["1/4","1/2","1"]
+}
+
+];
+
+function newQuestion(){
+
+let p=problems[Math.floor(Math.random()*problems.length)];
+
+document.getElementById("question").innerText=p.question;
+
+let html="";
+
+p.choices.forEach(choice=>{
+
+html+=`
+<button onclick="check('${choice}','${p.correct}')">
+${choice}
+</button>
+`;
+
+});
+
+document.getElementById("choices").innerHTML=html;
+
+}
+
+function check(answer,correct){
+
+if(answer===correct){
+
+score++;
+
+document.getElementById("score").innerText=score;
+
+}
+
+newQuestion();
+
+}
+
+newQuestion();
+
+</script>
+
+</body>
+</html>
