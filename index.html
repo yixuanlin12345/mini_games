@@ -1,16 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
+
 <head>
-    <title>Mini Games</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Math Arcade</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#0f172a;
+    color:white;
+    font-family:Arial;
+}
+
+h1{
+    text-align:center;
+    font-size:50px;
+    margin-top:40px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#94a3b8;
+    margin-top:10px;
+    margin-bottom:40px;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+}
+
+.section{
+    margin-bottom:50px;
+}
+
+.section h2{
+    margin-bottom:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#1e293b;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.icon{
+    font-size:60px;
+}
+
+.name{
+    font-size:25px;
+    margin-top:15px;
+}
+
+.desc{
+    color:#94a3b8;
+    margin-top:10px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-<h1>🎮 Mini Games</h1>
+<h1>🎮 Math Arcade</h1>
 
-<h2>網站建置成功！</h2>
+<div class="subtitle">
+Play Games • Train Brain
+</div>
 
-<p>第一個遊戲網站上線啦！</p>
+<div class="container">
+
+    <div class="section">
+
+        <h2>🎲 經典遊戲</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <div class="icon">🐍</div>
+                <div class="name">貪吃蛇</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">❌⭕</div>
+                <div class="name">井字棋</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔢</div>
+                <div class="name">2048</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">⚡</div>
+                <div class="name">反應測試</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🧠 數學遊戲</h2>
+
+        <div class="grid">
+
+            <a class="card" href="games/math/index.html">
+
+                <div class="icon">➕</div>
+
+                <div class="name">心算王</div>
+
+                <div class="desc">
+                    開始遊玩
+                </div>
+
+            </a>
+
+            <div class="card">
+                <div class="icon">📐</div>
+                <div class="name">線代挑戰</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">∫</div>
+                <div class="name">微分挑戰</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+            <div class="card">
+                <div class="icon">🎲</div>
+                <div class="name">機率挑戰</div>
+                <div class="desc">Coming Soon</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
